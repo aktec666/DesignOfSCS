@@ -12,6 +12,7 @@ namespace DesignOfSCS
 {
     public partial class MainForm : Form
     {
+        private bool mainServerState = false;
         private graph.Graph graph;
         private Graphics g;
         private List<GraphObject> objects = new List<GraphObject>();
@@ -43,7 +44,7 @@ namespace DesignOfSCS
         {
             if (e.Button == MouseButtons.Left)
             {
-                Node n = graph.CreateNewNode(e.Location);
+                Node n = graph.CreateNewNode(e.Location, false);
                 n.Draw(g);
                 n.Selected += Node_Selected;
                 n.Deselected += Node_Deselected;
@@ -142,12 +143,29 @@ namespace DesignOfSCS
                 }
                 else if (buttonNode.Checked)
                 {
-                    Node n = graph.CreateNewNode(e.Location);
+                    Node n = graph.CreateNewNode(e.Location, false);
                     n.Draw(g);
                     n.Selected += Node_Selected;
                     n.Deselected += Node_Deselected;
                     objects.Insert(0, n);
                 }
+                else if (buttonMain.Checked)
+                {
+                    if (mainServerState == true)
+                    {
+                        MessageBox.Show("Error! Only one master server may be present");
+                    }
+                    else
+                    {
+                        mainServerState = true;
+                        Node n = graph.CreateNewNode(e.Location, true);
+                        n.Draw(g);
+                        n.Selected += Node_Selected;
+                        n.Deselected += Node_Deselected;
+                        objects.Insert(0, n);
+                    }
+                }
+
             }
         }
 
@@ -203,6 +221,7 @@ namespace DesignOfSCS
             buttonCursor.Checked = true;
             buttonEdge.Checked = false;
             buttonNode.Checked = false;
+            buttonMain.Checked = false;
         }
 
         private void buttonNode_Click(object sender, EventArgs e)
@@ -210,6 +229,7 @@ namespace DesignOfSCS
             buttonCursor.Checked = false;
             buttonEdge.Checked = false;
             buttonNode.Checked = true;
+            buttonMain.Checked = false;
         }
 
         private void buttonEdge_Click(object sender, EventArgs e)
@@ -217,6 +237,7 @@ namespace DesignOfSCS
             buttonCursor.Checked = false;
             buttonEdge.Checked = true;
             buttonNode.Checked = false;
+            buttonMain.Checked = false;
             from = null;
         }
 
@@ -227,7 +248,11 @@ namespace DesignOfSCS
                 if (currentObj != null)
                 {
                     if (currentObj is Node)
+                    {
+                        if((currentObj as Node).IsServer)
+                            mainServerState = false;
                         graph.DeleteNode((Node)currentObj);
+                    }
                     else
                         graph.DeleteEdge((Edge)currentObj);
                     objects.Remove(currentObj);
@@ -258,6 +283,14 @@ namespace DesignOfSCS
         private void textBoxWeight_KeyDown(object sender, KeyEventArgs e)
         {
             
+        }
+
+        private void buttonMain_Click(object sender, EventArgs e)
+        {
+            buttonCursor.Checked = false;
+            buttonEdge.Checked = false;
+            buttonNode.Checked = false;
+            buttonMain.Checked = true;
         }
     }
 }

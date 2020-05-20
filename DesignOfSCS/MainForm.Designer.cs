@@ -34,22 +34,23 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.toolStripButtons = new System.Windows.Forms.ToolStrip();
+            this.groupBoxProperties = new System.Windows.Forms.GroupBox();
+            this.textBoxWeight = new System.Windows.Forms.TextBox();
+            this.labelWeight = new System.Windows.Forms.Label();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.buttonCursor = new System.Windows.Forms.ToolStripButton();
             this.buttonNode = new System.Windows.Forms.ToolStripButton();
             this.buttonEdge = new System.Windows.Forms.ToolStripButton();
-            this.groupBoxProperties = new System.Windows.Forms.GroupBox();
-            this.labelWeight = new System.Windows.Forms.Label();
-            this.textBoxWeight = new System.Windows.Forms.TextBox();
+            this.buttonMain = new System.Windows.Forms.ToolStripButton();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.toolStripButtons.SuspendLayout();
             this.groupBoxProperties.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -59,7 +60,7 @@
             this.fileToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(1204, 30);
+            this.menuStripMain.Size = new System.Drawing.Size(1204, 28);
             this.menuStripMain.TabIndex = 0;
             this.menuStripMain.Text = "menuStrip1";
             this.menuStripMain.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStripMain_ItemClicked);
@@ -94,7 +95,7 @@
             // splitContainer
             // 
             this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer.Location = new System.Drawing.Point(0, 30);
+            this.splitContainer.Location = new System.Drawing.Point(0, 28);
             this.splitContainer.Name = "splitContainer";
             // 
             // splitContainer.Panel1
@@ -105,24 +106,9 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.groupBoxProperties);
-            this.splitContainer.Size = new System.Drawing.Size(1204, 609);
+            this.splitContainer.Size = new System.Drawing.Size(1204, 611);
             this.splitContainer.SplitterDistance = 850;
             this.splitContainer.TabIndex = 1;
-            // 
-            // pictureBox
-            // 
-            this.pictureBox.BackColor = System.Drawing.Color.White;
-            this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox.Location = new System.Drawing.Point(0, 27);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(850, 582);
-            this.pictureBox.TabIndex = 1;
-            this.pictureBox.TabStop = false;
-            this.pictureBox.SizeChanged += new System.EventHandler(this.pictureBox_SizeChanged);
-            this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
-            this.pictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
-            this.pictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDoubleClick);
-            this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
             // 
             // toolStripButtons
             // 
@@ -131,42 +117,13 @@
             this.toolStripButtons.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.buttonCursor,
             this.buttonNode,
-            this.buttonEdge});
+            this.buttonEdge,
+            this.buttonMain});
             this.toolStripButtons.Location = new System.Drawing.Point(0, 0);
             this.toolStripButtons.Name = "toolStripButtons";
             this.toolStripButtons.Size = new System.Drawing.Size(850, 27);
             this.toolStripButtons.TabIndex = 0;
             this.toolStripButtons.Text = "toolStrip1";
-            // 
-            // buttonCursor
-            // 
-            this.buttonCursor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.buttonCursor.Image = global::DesignOfSCS.Properties.Resources.cursor;
-            this.buttonCursor.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.buttonCursor.Name = "buttonCursor";
-            this.buttonCursor.Size = new System.Drawing.Size(29, 28);
-            this.buttonCursor.Text = "toolStripButton1";
-            this.buttonCursor.Click += new System.EventHandler(this.buttonCursor_Click);
-            // 
-            // buttonNode
-            // 
-            this.buttonNode.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.buttonNode.Image = global::DesignOfSCS.Properties.Resources.circle;
-            this.buttonNode.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.buttonNode.Name = "buttonNode";
-            this.buttonNode.Size = new System.Drawing.Size(29, 28);
-            this.buttonNode.Text = "toolStripButton2";
-            this.buttonNode.Click += new System.EventHandler(this.buttonNode_Click);
-            // 
-            // buttonEdge
-            // 
-            this.buttonEdge.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.buttonEdge.Image = global::DesignOfSCS.Properties.Resources.edge;
-            this.buttonEdge.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.buttonEdge.Name = "buttonEdge";
-            this.buttonEdge.Size = new System.Drawing.Size(29, 28);
-            this.buttonEdge.Text = "toolStripButton3";
-            this.buttonEdge.Click += new System.EventHandler(this.buttonEdge_Click);
             // 
             // groupBoxProperties
             // 
@@ -180,15 +137,6 @@
             this.groupBoxProperties.TabStop = false;
             this.groupBoxProperties.Text = "Properties";
             // 
-            // labelWeight
-            // 
-            this.labelWeight.AutoSize = true;
-            this.labelWeight.Location = new System.Drawing.Point(64, 53);
-            this.labelWeight.Name = "labelWeight";
-            this.labelWeight.Size = new System.Drawing.Size(52, 17);
-            this.labelWeight.TabIndex = 0;
-            this.labelWeight.Text = "Weight";
-            // 
             // textBoxWeight
             // 
             this.textBoxWeight.Location = new System.Drawing.Point(156, 50);
@@ -198,6 +146,70 @@
             this.textBoxWeight.TextChanged += new System.EventHandler(this.textBoxWeight_TextChanged);
             this.textBoxWeight.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxWeight_KeyDown);
             this.textBoxWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxWeight_KeyPress);
+            // 
+            // labelWeight
+            // 
+            this.labelWeight.AutoSize = true;
+            this.labelWeight.Location = new System.Drawing.Point(64, 53);
+            this.labelWeight.Name = "labelWeight";
+            this.labelWeight.Size = new System.Drawing.Size(52, 17);
+            this.labelWeight.TabIndex = 0;
+            this.labelWeight.Text = "Weight";
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.BackColor = System.Drawing.Color.White;
+            this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox.Location = new System.Drawing.Point(0, 27);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(850, 584);
+            this.pictureBox.TabIndex = 1;
+            this.pictureBox.TabStop = false;
+            this.pictureBox.SizeChanged += new System.EventHandler(this.pictureBox_SizeChanged);
+            this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
+            this.pictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
+            this.pictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDoubleClick);
+            this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
+            // 
+            // buttonCursor
+            // 
+            this.buttonCursor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonCursor.Image = global::DesignOfSCS.Properties.Resources.cursor;
+            this.buttonCursor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonCursor.Name = "buttonCursor";
+            this.buttonCursor.Size = new System.Drawing.Size(29, 24);
+            this.buttonCursor.Text = "toolStripButton1";
+            this.buttonCursor.Click += new System.EventHandler(this.buttonCursor_Click);
+            // 
+            // buttonNode
+            // 
+            this.buttonNode.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonNode.Image = global::DesignOfSCS.Properties.Resources.circle;
+            this.buttonNode.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonNode.Name = "buttonNode";
+            this.buttonNode.Size = new System.Drawing.Size(29, 24);
+            this.buttonNode.Text = "toolStripButton2";
+            this.buttonNode.Click += new System.EventHandler(this.buttonNode_Click);
+            // 
+            // buttonEdge
+            // 
+            this.buttonEdge.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonEdge.Image = global::DesignOfSCS.Properties.Resources.edge;
+            this.buttonEdge.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonEdge.Name = "buttonEdge";
+            this.buttonEdge.Size = new System.Drawing.Size(29, 24);
+            this.buttonEdge.Text = "toolStripButton3";
+            this.buttonEdge.Click += new System.EventHandler(this.buttonEdge_Click);
+            // 
+            // buttonMain
+            // 
+            this.buttonMain.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonMain.Image = global::DesignOfSCS.Properties.Resources.main;
+            this.buttonMain.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonMain.Name = "buttonMain";
+            this.buttonMain.Size = new System.Drawing.Size(29, 24);
+            this.buttonMain.Text = "toolStripButton1";
+            this.buttonMain.Click += new System.EventHandler(this.buttonMain_Click);
             // 
             // MainForm
             // 
@@ -219,11 +231,11 @@
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.toolStripButtons.ResumeLayout(false);
             this.toolStripButtons.PerformLayout();
             this.groupBoxProperties.ResumeLayout(false);
             this.groupBoxProperties.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -245,6 +257,7 @@
         private System.Windows.Forms.GroupBox groupBoxProperties;
         private System.Windows.Forms.TextBox textBoxWeight;
         private System.Windows.Forms.Label labelWeight;
+        private System.Windows.Forms.ToolStripButton buttonMain;
     }
 }
 

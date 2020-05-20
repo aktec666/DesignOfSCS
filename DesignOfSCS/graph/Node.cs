@@ -9,6 +9,7 @@ namespace DesignOfSCS.graph
     {
         public const int NODE_SIZE = 60;
         public const int FONT_SIZE = 20;
+        public bool IsServer { get; set; }
 
         public int Id { get; set; }
 
@@ -24,15 +25,17 @@ namespace DesignOfSCS.graph
             }
         }
 
-        public Node(int id, int x, int y)
+        public Node(int id, bool IS, int x, int y)
         {
+            IsServer = IS;
             Id = id;
             Name = id.ToString();
             Position = new Point(x, y);
         }
 
-        public Node(int id)
+        public Node(int id, bool IS)
         {
+            IsServer = IS;
             Id = id;
             Name = id.ToString();
         }
@@ -40,14 +43,21 @@ namespace DesignOfSCS.graph
 
         public override void Draw(Graphics e, int num = 0)
         {
-            Brush b = new SolidBrush((State == State.Normal) ? Color.LightGray : Color.Lime);
-            e.FillEllipse(b, Position.X - NODE_SIZE / 2, Position.Y - NODE_SIZE / 2, NODE_SIZE, NODE_SIZE);
-            e.DrawEllipse(new Pen(Color.Black), Position.X - NODE_SIZE / 2, Position.Y - NODE_SIZE / 2, NODE_SIZE, NODE_SIZE);
-            StringFormat sf = new StringFormat();
-            sf.LineAlignment = StringAlignment.Center;
-            sf.Alignment = StringAlignment.Center;
-            Point center = Position;
-            e.DrawString(Name, new Font("Consolas", FONT_SIZE, FontStyle.Regular), Brushes.Blue, center, sf);
+            if (IsServer)
+            {
+                e.DrawImage(DesignOfSCS.Properties.Resources.main, Position.X - NODE_SIZE / 2, Position.Y - NODE_SIZE / 2, NODE_SIZE, NODE_SIZE);
+            }
+            else
+            {
+                Brush b = new SolidBrush((State == State.Normal) ? Color.LightGray : Color.Lime);
+                e.FillEllipse(b, Position.X - NODE_SIZE / 2, Position.Y - NODE_SIZE / 2, NODE_SIZE, NODE_SIZE);
+                e.DrawEllipse(new Pen(Color.Black), Position.X - NODE_SIZE / 2, Position.Y - NODE_SIZE / 2, NODE_SIZE, NODE_SIZE);
+                StringFormat sf = new StringFormat();
+                sf.LineAlignment = StringAlignment.Center;
+                sf.Alignment = StringAlignment.Center;
+                Point center = Position;
+                e.DrawString(Name, new Font("Consolas", FONT_SIZE, FontStyle.Regular), Brushes.Blue, center, sf);
+            }
         }
 
         public override bool IsOnHover(MouseEventArgs e)
@@ -70,4 +80,7 @@ namespace DesignOfSCS.graph
             Position = to;
         }
     }
+
+   
+
 }

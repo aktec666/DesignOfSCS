@@ -27,13 +27,13 @@ namespace DesignOfSCS.graph
             Edges.Add(edge);
         }
 
-        public Node CreateNewNode(Point position, int id = 0)
+        public Node CreateNewNode(Point position, bool IS, int id = 0)
         {
             Node node;
             if (id == 0)
-                node = new Node(++MaxId);
+                node = new Node(++MaxId, IS);
             else
-                node = new Node(id, position.X, position.Y);
+                node = new Node(id, IS, position.X, position.Y);
             node.Position = position;
             AddNode(node);
             return node;
