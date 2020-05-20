@@ -30,10 +30,15 @@ namespace DesignOfSCS.graph
         public Node CreateNewNode(Point position, bool IS, int id = 0)
         {
             Node node;
-            if (id == 0)
-                node = new Node(++MaxId, IS);
+            if (IS)
+                node = new Node(0, IS);
             else
-                node = new Node(id, IS, position.X, position.Y);
+            {
+                if (id == 0)
+                    node = new Node(++MaxId, IS);
+                else
+                    node = new Node(id, IS, position.X, position.Y);
+            }
             node.Position = position;
             AddNode(node);
             return node;

@@ -49,14 +49,16 @@ namespace DesignOfSCS.graph
             }
             else
             {
-                Brush b = new SolidBrush((State == State.Normal) ? Color.LightGray : Color.Lime);
-                e.FillEllipse(b, Position.X - NODE_SIZE / 2, Position.Y - NODE_SIZE / 2, NODE_SIZE, NODE_SIZE);
-                e.DrawEllipse(new Pen(Color.Black), Position.X - NODE_SIZE / 2, Position.Y - NODE_SIZE / 2, NODE_SIZE, NODE_SIZE);
+                //Brush b = new SolidBrush((State == State.Normal) ? Color.LightGray : Color.Lime);
+                //e.FillEllipse(b, Position.X - NODE_SIZE / 2, Position.Y - NODE_SIZE / 2, NODE_SIZE, NODE_SIZE);
+                //e.DrawEllipse(new Pen(Color.Black), Position.X - NODE_SIZE / 2, Position.Y - NODE_SIZE / 2, NODE_SIZE, NODE_SIZE);
+                e.DrawImage(DesignOfSCS.Properties.Resources.komutator, Position.X - NODE_SIZE / 2, Position.Y - NODE_SIZE / 2, NODE_SIZE, NODE_SIZE);
                 StringFormat sf = new StringFormat();
                 sf.LineAlignment = StringAlignment.Center;
                 sf.Alignment = StringAlignment.Center;
                 Point center = Position;
-                e.DrawString(Name, new Font("Consolas", FONT_SIZE, FontStyle.Regular), Brushes.Blue, center, sf);
+                center.Y -= 35;
+                e.DrawString(Name, new Font("Consolas", FONT_SIZE, FontStyle.Regular), Brushes.Black, center, sf);
             }
         }
 

@@ -60,7 +60,7 @@
             this.fileToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(1204, 28);
+            this.menuStripMain.Size = new System.Drawing.Size(1204, 30);
             this.menuStripMain.TabIndex = 0;
             this.menuStripMain.Text = "menuStrip1";
             this.menuStripMain.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStripMain_ItemClicked);
@@ -95,7 +95,7 @@
             // splitContainer
             // 
             this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer.Location = new System.Drawing.Point(0, 28);
+            this.splitContainer.Location = new System.Drawing.Point(0, 30);
             this.splitContainer.Name = "splitContainer";
             // 
             // splitContainer.Panel1
@@ -106,7 +106,7 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.groupBoxProperties);
-            this.splitContainer.Size = new System.Drawing.Size(1204, 611);
+            this.splitContainer.Size = new System.Drawing.Size(1204, 609);
             this.splitContainer.SplitterDistance = 850;
             this.splitContainer.TabIndex = 1;
             // 
@@ -116,9 +116,9 @@
             this.toolStripButtons.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStripButtons.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.buttonCursor,
+            this.buttonMain,
             this.buttonNode,
-            this.buttonEdge,
-            this.buttonMain});
+            this.buttonEdge});
             this.toolStripButtons.Location = new System.Drawing.Point(0, 0);
             this.toolStripButtons.Name = "toolStripButtons";
             this.toolStripButtons.Size = new System.Drawing.Size(850, 27);
@@ -162,7 +162,7 @@
             this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox.Location = new System.Drawing.Point(0, 27);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(850, 584);
+            this.pictureBox.Size = new System.Drawing.Size(850, 582);
             this.pictureBox.TabIndex = 1;
             this.pictureBox.TabStop = false;
             this.pictureBox.SizeChanged += new System.EventHandler(this.pictureBox_SizeChanged);
@@ -184,7 +184,7 @@
             // buttonNode
             // 
             this.buttonNode.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.buttonNode.Image = global::DesignOfSCS.Properties.Resources.circle;
+            this.buttonNode.Image = global::DesignOfSCS.Properties.Resources.komutator;
             this.buttonNode.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buttonNode.Name = "buttonNode";
             this.buttonNode.Size = new System.Drawing.Size(29, 24);
