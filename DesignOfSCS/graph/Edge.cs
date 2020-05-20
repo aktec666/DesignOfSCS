@@ -8,29 +8,24 @@ namespace DesignOfSCS.graph
     class Edge : GraphObject
     {
         public const int FONT_SIZE = 14;
-        private Node from;
-        public Node From { get { return from; } set { from = value; } }
-
-        private Node to;
-        public Node To { get { return to; } set { to = value; } }
-
-        private int weight;
-        public int Weight { get { return weight; } set { weight = value; } }
+        public Node From { get; set; }
+        public Node To { get; set; }
+        public int Weight { get; set; }
 
         private Point MidPoint { get; set; }
 
         public Edge(Node _from, Node _to, int _weight = 0)
         {
-            from = _from;
-            to = _to;
-            weight = _weight;
+            From = _from;
+            To = _to;
+            Weight = _weight;
         }
 
         public override void Draw(Graphics e, int num = 0)
         {
             int k = 50;
-            Point startPoint = MathHelper.MiddlePoint(to.Position, from.Position, Node.NODE_SIZE / 2);
-            Point endPoint = MathHelper.MiddlePoint(from.Position, to.Position, Node.NODE_SIZE / 2);
+            Point startPoint = MathHelper.MiddlePoint(To.Position, From.Position, Node.NODE_SIZE / 2);
+            Point endPoint = MathHelper.MiddlePoint(From.Position, To.Position, Node.NODE_SIZE / 2);
 
             Pen pen = new Pen(State == State.Normal ? Color.Black : Color.Lime, 2);
             Point temp = new Point((startPoint.X + endPoint.X) / 2, (startPoint.Y + endPoint.Y) / 2);
@@ -91,8 +86,8 @@ namespace DesignOfSCS.graph
 
         public override bool IsOnHover(MouseEventArgs e)
         {
-            Point startPoint = MathHelper.MiddlePoint(to.Position, from.Position, Node.NODE_SIZE / 2);
-            Point endPoint = MathHelper.MiddlePoint(from.Position, to.Position, Node.NODE_SIZE / 2);
+            Point startPoint = MathHelper.MiddlePoint(To.Position, From.Position, Node.NODE_SIZE / 2);
+            Point endPoint = MathHelper.MiddlePoint(From.Position, To.Position, Node.NODE_SIZE / 2);
             return MathHelper.IsMiddle(e.Location, startPoint, MidPoint)
                 || MathHelper.IsMiddle(e.Location, endPoint, MidPoint);
         }

@@ -39,12 +39,17 @@
             this.buttonCursor = new System.Windows.Forms.ToolStripButton();
             this.buttonNode = new System.Windows.Forms.ToolStripButton();
             this.buttonEdge = new System.Windows.Forms.ToolStripButton();
+            this.groupBoxProperties = new System.Windows.Forms.GroupBox();
+            this.labelWeight = new System.Windows.Forms.Label();
+            this.textBoxWeight = new System.Windows.Forms.TextBox();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
+            this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.toolStripButtons.SuspendLayout();
+            this.groupBoxProperties.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -96,6 +101,10 @@
             // 
             this.splitContainer.Panel1.Controls.Add(this.pictureBox);
             this.splitContainer.Panel1.Controls.Add(this.toolStripButtons);
+            // 
+            // splitContainer.Panel2
+            // 
+            this.splitContainer.Panel2.Controls.Add(this.groupBoxProperties);
             this.splitContainer.Size = new System.Drawing.Size(1204, 609);
             this.splitContainer.SplitterDistance = 850;
             this.splitContainer.TabIndex = 1;
@@ -159,6 +168,37 @@
             this.buttonEdge.Text = "toolStripButton3";
             this.buttonEdge.Click += new System.EventHandler(this.buttonEdge_Click);
             // 
+            // groupBoxProperties
+            // 
+            this.groupBoxProperties.Controls.Add(this.textBoxWeight);
+            this.groupBoxProperties.Controls.Add(this.labelWeight);
+            this.groupBoxProperties.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBoxProperties.Location = new System.Drawing.Point(0, 0);
+            this.groupBoxProperties.Name = "groupBoxProperties";
+            this.groupBoxProperties.Size = new System.Drawing.Size(350, 118);
+            this.groupBoxProperties.TabIndex = 0;
+            this.groupBoxProperties.TabStop = false;
+            this.groupBoxProperties.Text = "Properties";
+            // 
+            // labelWeight
+            // 
+            this.labelWeight.AutoSize = true;
+            this.labelWeight.Location = new System.Drawing.Point(64, 53);
+            this.labelWeight.Name = "labelWeight";
+            this.labelWeight.Size = new System.Drawing.Size(52, 17);
+            this.labelWeight.TabIndex = 0;
+            this.labelWeight.Text = "Weight";
+            // 
+            // textBoxWeight
+            // 
+            this.textBoxWeight.Location = new System.Drawing.Point(156, 50);
+            this.textBoxWeight.Name = "textBoxWeight";
+            this.textBoxWeight.Size = new System.Drawing.Size(121, 22);
+            this.textBoxWeight.TabIndex = 1;
+            this.textBoxWeight.TextChanged += new System.EventHandler(this.textBoxWeight_TextChanged);
+            this.textBoxWeight.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxWeight_KeyDown);
+            this.textBoxWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxWeight_KeyPress);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -176,11 +216,14 @@
             this.menuStripMain.PerformLayout();
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel1.PerformLayout();
+            this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.toolStripButtons.ResumeLayout(false);
             this.toolStripButtons.PerformLayout();
+            this.groupBoxProperties.ResumeLayout(false);
+            this.groupBoxProperties.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,6 +242,9 @@
         private System.Windows.Forms.ToolStripButton buttonNode;
         private System.Windows.Forms.ToolStripButton buttonEdge;
         private System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.GroupBox groupBoxProperties;
+        private System.Windows.Forms.TextBox textBoxWeight;
+        private System.Windows.Forms.Label labelWeight;
     }
 }
 

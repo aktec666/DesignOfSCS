@@ -21,6 +21,7 @@ namespace DesignOfSCS
 
         public MainForm()
         {
+            graph = new Graph();
             InitializeComponent();
         }
 
@@ -31,10 +32,10 @@ namespace DesignOfSCS
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            graph = new Graph();
             buttonCursor.Checked = true;
             buttonNode.Checked = false;
             buttonEdge.Checked = false;
+            textBoxWeight.Enabled = false;
             g = pictureBox.CreateGraphics();
         }
 
@@ -89,17 +90,23 @@ namespace DesignOfSCS
             {
 
             }
+            textBoxWeight.Text = "";
+            textBoxWeight.Enabled = false;
             currentObj = n;
         }
 
         private void Edge_Selected(object sender)
         {
             Edge e = (Edge)sender;
+            textBoxWeight.Enabled = true;
+            textBoxWeight.Text = e.Weight.ToString();
             currentObj = e;
         }
 
         private void Edge_Deselected(object sender)
         {
+            textBoxWeight.Text = "";
+            textBoxWeight.Enabled = false;
             currentObj = null;
         }
 
@@ -140,8 +147,8 @@ namespace DesignOfSCS
 
         private void pictureBox_SizeChanged(object sender, EventArgs e)
         {
-         //   g = pictureBox.CreateGraphics();
-         //   Repaint();
+            g = pictureBox.CreateGraphics();
+            Repaint();
         }
 
         private void pictureBox_MouseMove(object sender, MouseEventArgs e)
@@ -216,6 +223,29 @@ namespace DesignOfSCS
                 }
                 Console.WriteLine("Delete");
             }
+        }
+
+        private void textBoxWeight_TextChanged(object sender, EventArgs e)
+        {
+            if (currentObj != null && currentObj is Edge)
+            {
+                int w;
+                if (int.TryParse(textBoxWeight.Text, out w))
+                {
+                    ((Edge)currentObj).Weight = w;
+                    Repaint();
+                }
+            }
+        }
+
+        private void textBoxWeight_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void textBoxWeight_KeyDown(object sender, KeyEventArgs e)
+        {
+            
         }
     }
 }
