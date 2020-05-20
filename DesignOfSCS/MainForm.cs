@@ -200,5 +200,22 @@ namespace DesignOfSCS
             buttonNode.Checked = false;
             from = null;
         }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                if (currentObj != null)
+                {
+                    if (currentObj is Node)
+                        graph.DeleteNode((Node)currentObj);
+                    else
+                        graph.DeleteEdge((Edge)currentObj);
+                    objects.Remove(currentObj);
+                    Repaint();
+                }
+                Console.WriteLine("Delete");
+            }
+        }
     }
 }

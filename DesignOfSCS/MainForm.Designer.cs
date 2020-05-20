@@ -54,7 +54,7 @@
             this.fileToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(1204, 28);
+            this.menuStripMain.Size = new System.Drawing.Size(1204, 30);
             this.menuStripMain.TabIndex = 0;
             this.menuStripMain.Text = "menuStrip1";
             this.menuStripMain.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStripMain_ItemClicked);
@@ -66,7 +66,7 @@
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 26);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
@@ -89,14 +89,14 @@
             // splitContainer
             // 
             this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer.Location = new System.Drawing.Point(0, 28);
+            this.splitContainer.Location = new System.Drawing.Point(0, 30);
             this.splitContainer.Name = "splitContainer";
             // 
             // splitContainer.Panel1
             // 
             this.splitContainer.Panel1.Controls.Add(this.pictureBox);
             this.splitContainer.Panel1.Controls.Add(this.toolStripButtons);
-            this.splitContainer.Size = new System.Drawing.Size(1204, 611);
+            this.splitContainer.Size = new System.Drawing.Size(1204, 609);
             this.splitContainer.SplitterDistance = 850;
             this.splitContainer.TabIndex = 1;
             // 
@@ -104,9 +104,9 @@
             // 
             this.pictureBox.BackColor = System.Drawing.Color.White;
             this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox.Location = new System.Drawing.Point(0, 27);
+            this.pictureBox.Location = new System.Drawing.Point(0, 31);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(850, 584);
+            this.pictureBox.Size = new System.Drawing.Size(850, 578);
             this.pictureBox.TabIndex = 1;
             this.pictureBox.TabStop = false;
             this.pictureBox.SizeChanged += new System.EventHandler(this.pictureBox_SizeChanged);
@@ -125,7 +125,7 @@
             this.buttonEdge});
             this.toolStripButtons.Location = new System.Drawing.Point(0, 0);
             this.toolStripButtons.Name = "toolStripButtons";
-            this.toolStripButtons.Size = new System.Drawing.Size(850, 27);
+            this.toolStripButtons.Size = new System.Drawing.Size(850, 31);
             this.toolStripButtons.TabIndex = 0;
             this.toolStripButtons.Text = "toolStrip1";
             // 
@@ -135,7 +135,7 @@
             this.buttonCursor.Image = global::DesignOfSCS.Properties.Resources.cursor;
             this.buttonCursor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buttonCursor.Name = "buttonCursor";
-            this.buttonCursor.Size = new System.Drawing.Size(29, 24);
+            this.buttonCursor.Size = new System.Drawing.Size(29, 28);
             this.buttonCursor.Text = "toolStripButton1";
             this.buttonCursor.Click += new System.EventHandler(this.buttonCursor_Click);
             // 
@@ -145,7 +145,7 @@
             this.buttonNode.Image = global::DesignOfSCS.Properties.Resources.circle;
             this.buttonNode.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buttonNode.Name = "buttonNode";
-            this.buttonNode.Size = new System.Drawing.Size(29, 24);
+            this.buttonNode.Size = new System.Drawing.Size(29, 28);
             this.buttonNode.Text = "toolStripButton2";
             this.buttonNode.Click += new System.EventHandler(this.buttonNode_Click);
             // 
@@ -155,7 +155,7 @@
             this.buttonEdge.Image = global::DesignOfSCS.Properties.Resources.edge;
             this.buttonEdge.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buttonEdge.Name = "buttonEdge";
-            this.buttonEdge.Size = new System.Drawing.Size(29, 24);
+            this.buttonEdge.Size = new System.Drawing.Size(29, 28);
             this.buttonEdge.Text = "toolStripButton3";
             this.buttonEdge.Click += new System.EventHandler(this.buttonEdge_Click);
             // 
@@ -167,9 +167,11 @@
             this.Controls.Add(this.splitContainer);
             this.Controls.Add(this.menuStripMain);
             this.DoubleBuffered = true;
+            this.KeyPreview = true;
             this.Name = "MainForm";
             this.Text = "Design of SCS";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
             this.splitContainer.Panel1.ResumeLayout(false);
