@@ -113,9 +113,9 @@
             // 
             this.pictureBox.BackColor = System.Drawing.Color.White;
             this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox.Location = new System.Drawing.Point(0, 31);
+            this.pictureBox.Location = new System.Drawing.Point(0, 27);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(850, 578);
+            this.pictureBox.Size = new System.Drawing.Size(850, 582);
             this.pictureBox.TabIndex = 1;
             this.pictureBox.TabStop = false;
             this.pictureBox.SizeChanged += new System.EventHandler(this.pictureBox_SizeChanged);
@@ -134,7 +134,7 @@
             this.buttonEdge});
             this.toolStripButtons.Location = new System.Drawing.Point(0, 0);
             this.toolStripButtons.Name = "toolStripButtons";
-            this.toolStripButtons.Size = new System.Drawing.Size(850, 31);
+            this.toolStripButtons.Size = new System.Drawing.Size(850, 27);
             this.toolStripButtons.TabIndex = 0;
             this.toolStripButtons.Text = "toolStrip1";
             // 

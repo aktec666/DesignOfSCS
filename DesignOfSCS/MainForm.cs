@@ -77,10 +77,22 @@ namespace DesignOfSCS
                     }
                     else
                     {
-                        Edge edge = graph.CreateNewEdge(from, n);
-                        edge.Selected += Edge_Selected;
-                        edge.Deselected += Edge_Deselected;
-                        objects.Add(edge);
+                        bool p = true;
+                        foreach(var x in  graph.Edges)
+                        {
+                            if(x.From == from && x.To == n || x.From == n && x.To == from)
+                            {
+                                p = false;
+                                break;
+                            }
+                        }
+                        if (p)
+                        {
+                            Edge edge = graph.CreateNewEdge(from, n);
+                            edge.Selected += Edge_Selected;
+                            edge.Deselected += Edge_Deselected;
+                            objects.Add(edge);
+                        }
                         from = null;
                         n.Deselect();
                     }
