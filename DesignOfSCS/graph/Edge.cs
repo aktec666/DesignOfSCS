@@ -7,6 +7,7 @@ namespace DesignOfSCS.graph
 {
     class Edge : GraphObject
     {
+        public bool IsMinE { get; set; }
         public const int FONT_SIZE = 14;
         public Node From { get; set; }
         public Node To { get; set; }
@@ -19,6 +20,7 @@ namespace DesignOfSCS.graph
             From = _from;
             To = _to;
             Weight = _weight;
+            IsMinE = false;
         }
 
         public override void Draw(Graphics e, int num = 0)
@@ -28,6 +30,11 @@ namespace DesignOfSCS.graph
             Point endPoint = MathHelper.MiddlePoint(From.Position, To.Position, Node.NODE_SIZE / 2);
 
             Pen pen = new Pen(State == State.Normal ? Color.Black : Color.Lime, 2);
+            if (IsMinE)
+            {
+                pen = new Pen(Color.Red,5);
+                IsMinE = false;
+            }
             Point temp = new Point((startPoint.X + endPoint.X) / 2, (startPoint.Y + endPoint.Y) / 2);
             Point midPoint;
             if (num % 2 == 0)

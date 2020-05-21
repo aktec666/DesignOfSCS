@@ -84,12 +84,13 @@ namespace DesignOfSCS.graph
             int[,] ret = new int[g.Nodes.Count, g.Nodes.Count];
             for (int i = 0; i < ret.GetLength(0); i++)
                 for (int j = 0; j < ret.GetLength(1); j++)
-                    ret[i, j] = 1000000;
+                    ret[i, j] = 1000000000;
             foreach (Edge e in g.Edges)
             {
                 int u = g.Index(e.From);
                 int v = g.Index(e.To);
                 ret[u, v] = e.Weight;
+                ret[v, u] = e.Weight;
             }
             return ret;
         }

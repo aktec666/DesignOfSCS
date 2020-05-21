@@ -292,5 +292,60 @@ namespace DesignOfSCS
             buttonNode.Checked = false;
             buttonMain.Checked = true;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int[,] vs = GraphRepresentation.toWeightMatrix(graph);
+            int n = graph.Nodes.Count;
+            const int INF = 1000000000;
+            List<string> res = new List<string>();
+
+            List<bool> used = new List<bool>();
+            for (int i = 0; i < n; i++)
+                used.Add(false);
+
+            List<int> min_e = new List<int>();
+            for (int i = 0; i < n; i++)
+                min_e.Add(INF);
+
+            List<int> sel_e = new List<int>();
+            for (int i = 0; i < n; i++)
+                sel_e.Add(-1);
+
+            min_e[0] = 0;
+
+            for (int i = 0; i < n; ++i)
+            {
+                int v = -1;
+                for (int j = 0; j < n; ++j)
+                    if (!used[j] && (v == -1 || min_e[j] < min_e[v]))
+                        v = j;
+                if (min_e[v] == INF)
+                    MessageBox.Show("No MST");
+                used[v] = true;
+
+                for (int to = 0; to < n; ++to)
+                    if (vs[v, to] < min_e[to])
+                    {
+                        min_e[to] = vs[v, to];
+                        sel_e[to] = v;
+                    }
+            }
+
+            
+            for(int i = 0; i < n; i++)
+            {
+                if (sel_e[i] != -1)
+                {
+                    foreach (var x in graph.Edges)
+                    {
+                        if (x.From.Id == i && x.To.Id == sel_e[i] || x.From.Id == sel_e[i] && x.To.Id == i)
+                            x.IsMinE = true;
+                    }
+                }
+            }
+            Repaint();
+
+        }
     }
 }
