@@ -33,7 +33,7 @@ namespace DesignOfSCS.graph
             Position = new Point(x, y);
         }
 
-        public Node(int id, bool IS)
+        public Node(int id, bool IS = false)
         {
             IsServer = IS;
             Id = id;
