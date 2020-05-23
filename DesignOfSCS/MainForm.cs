@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace DesignOfSCS
 {
@@ -296,17 +297,28 @@ namespace DesignOfSCS
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Stopwatch t = new Stopwatch();
+            t.Start();
             var p = PrimAlgorithm.Prim(GraphRepresentation.toWeightMatrix(graph), graph.Nodes.Count);
+            t.Stop();
 
+            int cost = 0;
             for(int i =1; i<p.Length; i++)
             {
                 foreach (var x in graph.Edges)
                 {
                     if (x.From.Id == p[i] && x.To.Id == i || x.From.Id == i && x.To.Id == p[i])
+                    {
                         x.IsMinE = true;
+                        cost += x.Weight;
+                    }
+
+                        
                 }
             }
+
+            labelCost.Text = "Cost " + cost;
+            labelTime.Text = "Time (ticks) " + t.ElapsedTicks;
 
             Repaint();
 
@@ -396,6 +408,34 @@ namespace DesignOfSCS
         private void button2_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void buttonKruskal_Click(object sender, EventArgs e)
+        {
+            Stopwatch t = new Stopwatch();
+            t.Start();
+            var p = KruskalAlgorithm.Kruskal(graph);
+            t.Stop();
+
+            int cost = 0;
+            for (int i = 0; i < p.Length/2; i++)
+            {
+                foreach (var x in graph.Edges)
+                {
+                    if (x.From.Id == p[i,0] && x.To.Id == p[i,1] || x.From.Id == p[i,1] && x.To.Id == p[i,0])
+                    {
+                        x.IsMinE = true;
+                        cost += x.Weight;
+                    }
+
+
+                }
+            }
+
+            labelCost.Text = "Cost " + cost;
+            labelTime.Text = "Time (ticks) " + t.ElapsedTicks;
+
+            Repaint();
         }
     }
 }

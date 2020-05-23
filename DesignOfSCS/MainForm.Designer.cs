@@ -44,6 +44,11 @@
             this.groupBoxProperties = new System.Windows.Forms.GroupBox();
             this.textBoxWeight = new System.Windows.Forms.TextBox();
             this.labelWeight = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labelCost = new System.Windows.Forms.Label();
+            this.labelTime = new System.Windows.Forms.Label();
+            this.buttonKruskal = new System.Windows.Forms.Button();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -52,6 +57,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.toolStripButtons.SuspendLayout();
             this.groupBoxProperties.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -106,7 +113,8 @@
             // 
             // splitContainer.Panel2
             // 
-            this.splitContainer.Panel2.Controls.Add(this.buttonPrim);
+            this.splitContainer.Panel2.Controls.Add(this.groupBox2);
+            this.splitContainer.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer.Panel2.Controls.Add(this.groupBoxProperties);
             this.splitContainer.Size = new System.Drawing.Size(1204, 611);
             this.splitContainer.SplitterDistance = 850;
@@ -184,7 +192,7 @@
             // 
             // buttonPrim
             // 
-            this.buttonPrim.Location = new System.Drawing.Point(99, 111);
+            this.buttonPrim.Location = new System.Drawing.Point(89, 21);
             this.buttonPrim.Name = "buttonPrim";
             this.buttonPrim.Size = new System.Drawing.Size(146, 61);
             this.buttonPrim.TabIndex = 1;
@@ -223,6 +231,58 @@
             this.labelWeight.TabIndex = 0;
             this.labelWeight.Text = "Weight";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.buttonKruskal);
+            this.groupBox1.Controls.Add(this.buttonPrim);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 105);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(350, 177);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Commands";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.labelTime);
+            this.groupBox2.Controls.Add(this.labelCost);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox2.Location = new System.Drawing.Point(0, 282);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(350, 129);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Results";
+            // 
+            // labelCost
+            // 
+            this.labelCost.AutoSize = true;
+            this.labelCost.Location = new System.Drawing.Point(26, 44);
+            this.labelCost.Name = "labelCost";
+            this.labelCost.Size = new System.Drawing.Size(36, 17);
+            this.labelCost.TabIndex = 0;
+            this.labelCost.Text = "Cost";
+            // 
+            // labelTime
+            // 
+            this.labelTime.AutoSize = true;
+            this.labelTime.Location = new System.Drawing.Point(26, 74);
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(81, 17);
+            this.labelTime.TabIndex = 1;
+            this.labelTime.Text = "Time (ticks)";
+            // 
+            // buttonKruskal
+            // 
+            this.buttonKruskal.Location = new System.Drawing.Point(89, 88);
+            this.buttonKruskal.Name = "buttonKruskal";
+            this.buttonKruskal.Size = new System.Drawing.Size(146, 61);
+            this.buttonKruskal.TabIndex = 2;
+            this.buttonKruskal.Text = "Kruskal algorithm";
+            this.buttonKruskal.UseVisualStyleBackColor = true;
+            this.buttonKruskal.Click += new System.EventHandler(this.buttonKruskal_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -248,6 +308,9 @@
             this.toolStripButtons.PerformLayout();
             this.groupBoxProperties.ResumeLayout(false);
             this.groupBoxProperties.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,6 +334,11 @@
         private System.Windows.Forms.Label labelWeight;
         private System.Windows.Forms.ToolStripButton buttonMain;
         private System.Windows.Forms.Button buttonPrim;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label labelCost;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label labelTime;
+        private System.Windows.Forms.Button buttonKruskal;
     }
 }
 
