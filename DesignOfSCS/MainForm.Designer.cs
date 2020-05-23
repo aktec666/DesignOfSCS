@@ -51,6 +51,7 @@
             this.buttonKruskal = new System.Windows.Forms.Button();
             this.textBoxCost = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBoxResult = new System.Windows.Forms.TextBox();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -70,7 +71,7 @@
             this.fileToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(1204, 28);
+            this.menuStripMain.Size = new System.Drawing.Size(1317, 28);
             this.menuStripMain.TabIndex = 0;
             this.menuStripMain.Text = "menuStrip1";
             this.menuStripMain.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStripMain_ItemClicked);
@@ -101,6 +102,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.exitToolStripMenuItem.Text = "Выход";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // splitContainer
             // 
@@ -118,8 +120,8 @@
             this.splitContainer.Panel2.Controls.Add(this.groupBox2);
             this.splitContainer.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer.Panel2.Controls.Add(this.groupBoxProperties);
-            this.splitContainer.Size = new System.Drawing.Size(1204, 611);
-            this.splitContainer.SplitterDistance = 850;
+            this.splitContainer.Size = new System.Drawing.Size(1317, 611);
+            this.splitContainer.SplitterDistance = 864;
             this.splitContainer.TabIndex = 1;
             // 
             // pictureBox
@@ -128,7 +130,7 @@
             this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox.Location = new System.Drawing.Point(0, 27);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(850, 584);
+            this.pictureBox.Size = new System.Drawing.Size(864, 584);
             this.pictureBox.TabIndex = 1;
             this.pictureBox.TabStop = false;
             this.pictureBox.SizeChanged += new System.EventHandler(this.pictureBox_SizeChanged);
@@ -148,7 +150,7 @@
             this.buttonEdge});
             this.toolStripButtons.Location = new System.Drawing.Point(0, 0);
             this.toolStripButtons.Name = "toolStripButtons";
-            this.toolStripButtons.Size = new System.Drawing.Size(850, 27);
+            this.toolStripButtons.Size = new System.Drawing.Size(864, 27);
             this.toolStripButtons.TabIndex = 0;
             this.toolStripButtons.Text = "toolStrip1";
             // 
@@ -209,7 +211,7 @@
             this.groupBoxProperties.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxProperties.Location = new System.Drawing.Point(0, 0);
             this.groupBoxProperties.Name = "groupBoxProperties";
-            this.groupBoxProperties.Size = new System.Drawing.Size(350, 106);
+            this.groupBoxProperties.Size = new System.Drawing.Size(449, 106);
             this.groupBoxProperties.TabIndex = 0;
             this.groupBoxProperties.TabStop = false;
             this.groupBoxProperties.Text = "Свойства";
@@ -240,13 +242,14 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 106);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(350, 177);
+            this.groupBox1.Size = new System.Drawing.Size(449, 177);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Команды";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.textBoxResult);
             this.groupBox2.Controls.Add(this.textBoxCost);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.labelTime);
@@ -254,7 +257,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(0, 283);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(350, 162);
+            this.groupBox2.Size = new System.Drawing.Size(449, 282);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Результат";
@@ -306,11 +309,19 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Стоимость (р за 1 метр)";
             // 
+            // textBoxResult
+            // 
+            this.textBoxResult.Location = new System.Drawing.Point(6, 129);
+            this.textBoxResult.Multiline = true;
+            this.textBoxResult.Name = "textBoxResult";
+            this.textBoxResult.Size = new System.Drawing.Size(431, 147);
+            this.textBoxResult.TabIndex = 4;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1204, 639);
+            this.ClientSize = new System.Drawing.Size(1317, 639);
             this.Controls.Add(this.splitContainer);
             this.Controls.Add(this.menuStripMain);
             this.DoubleBuffered = true;
@@ -364,6 +375,7 @@
         private System.Windows.Forms.Button buttonKruskal;
         private System.Windows.Forms.TextBox textBoxCost;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxResult;
     }
 }
 

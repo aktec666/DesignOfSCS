@@ -304,6 +304,11 @@ namespace DesignOfSCS
             t.Stop();
 
             int cost = 0;
+
+            Graph dist = new Graph();
+            foreach (var x in graph.Nodes)
+                dist.AddNode(x);
+
             for(int i =1; i<p.Length; i++)
             {
                 foreach (var x in graph.Edges)
@@ -312,10 +317,17 @@ namespace DesignOfSCS
                     {
                         x.IsMinE = true;
                         cost += x.Weight;
+                        dist.AddEdge(x);
                     }
-
-                        
                 }
+            }
+
+            var distRez = DijkstraAlgorithm.Dijkstra(GraphRepresentation.toWeightMatrix(dist), 0, dist.Nodes.Count);
+            textBoxResult.Text = "Расстояние в метрах от главного коммутатора до: \n\r";
+
+            for(int i =1; i<dist.Nodes.Count; i++)
+            {
+                textBoxResult.Text += "Коммутатора " + i + " = " + distRez[i] + " м." + Environment.NewLine;
             }
 
             labelCost.Text = "Итоговая стоимость (р) " + cost * Convert.ToInt32(textBoxCost.Text);
@@ -417,6 +429,10 @@ namespace DesignOfSCS
             var p = KruskalAlgorithm.Kruskal(graph);
             t.Stop();
 
+            Graph dist = new Graph();
+            foreach (var x in graph.Nodes)
+                dist.AddNode(x);
+
             int cost = 0;
             for (int i = 0; i < p.Length/2; i++)
             {
@@ -426,16 +442,31 @@ namespace DesignOfSCS
                     {
                         x.IsMinE = true;
                         cost += x.Weight;
+                        dist.AddEdge(x);
                     }
 
 
                 }
             }
 
+            var distRez = DijkstraAlgorithm.Dijkstra(GraphRepresentation.toWeightMatrix(dist), 0, dist.Nodes.Count);
+            textBoxResult.Text = "Расстояние в метрах от главного коммутатора до: \n\r";
+
+            for (int i = 1; i < dist.Nodes.Count; i++)
+            {
+                textBoxResult.Text += "Коммутатора " + i + " = " + distRez[i] + " м." + Environment.NewLine;
+            }
+
+
             labelCost.Text = "Итоговая стоимость (р) " + cost * Convert.ToInt32(textBoxCost.Text);
             labelTime.Text = "Время в тиках " + t.ElapsedTicks;
 
             Repaint();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
