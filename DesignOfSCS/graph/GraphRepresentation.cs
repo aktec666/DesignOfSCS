@@ -162,6 +162,7 @@ namespace DesignOfSCS.graph
             foreach (Edge e in g.Edges)
             {
                 m[g.Index(e.From)].Add(e.To.Id);
+                m[g.Index(e.To)].Add(e.From.Id);
             }
             int k = 0;
             for (int i = 0; i < m.Count; i++)

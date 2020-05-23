@@ -40,10 +40,10 @@
             this.buttonMain = new System.Windows.Forms.ToolStripButton();
             this.buttonNode = new System.Windows.Forms.ToolStripButton();
             this.buttonEdge = new System.Windows.Forms.ToolStripButton();
+            this.buttonPrim = new System.Windows.Forms.Button();
             this.groupBoxProperties = new System.Windows.Forms.GroupBox();
             this.textBoxWeight = new System.Windows.Forms.TextBox();
             this.labelWeight = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -106,7 +106,7 @@
             // 
             // splitContainer.Panel2
             // 
-            this.splitContainer.Panel2.Controls.Add(this.button1);
+            this.splitContainer.Panel2.Controls.Add(this.buttonPrim);
             this.splitContainer.Panel2.Controls.Add(this.groupBoxProperties);
             this.splitContainer.Size = new System.Drawing.Size(1204, 611);
             this.splitContainer.SplitterDistance = 850;
@@ -182,6 +182,16 @@
             this.buttonEdge.Text = "toolStripButton3";
             this.buttonEdge.Click += new System.EventHandler(this.buttonEdge_Click);
             // 
+            // buttonPrim
+            // 
+            this.buttonPrim.Location = new System.Drawing.Point(99, 111);
+            this.buttonPrim.Name = "buttonPrim";
+            this.buttonPrim.Size = new System.Drawing.Size(146, 61);
+            this.buttonPrim.TabIndex = 1;
+            this.buttonPrim.Text = "Prim algorithm";
+            this.buttonPrim.UseVisualStyleBackColor = true;
+            this.buttonPrim.Click += new System.EventHandler(this.button1_Click);
+            // 
             // groupBoxProperties
             // 
             this.groupBoxProperties.Controls.Add(this.textBoxWeight);
@@ -212,16 +222,6 @@
             this.labelWeight.Size = new System.Drawing.Size(52, 17);
             this.labelWeight.TabIndex = 0;
             this.labelWeight.Text = "Weight";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 111);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 61);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "buttonConvert";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainForm
             // 
@@ -270,7 +270,7 @@
         private System.Windows.Forms.TextBox textBoxWeight;
         private System.Windows.Forms.Label labelWeight;
         private System.Windows.Forms.ToolStripButton buttonMain;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonPrim;
     }
 }
 

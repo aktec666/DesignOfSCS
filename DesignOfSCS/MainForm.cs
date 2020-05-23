@@ -1,4 +1,5 @@
 ﻿using DesignOfSCS.graph;
+using DesignOfSCS.math;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -295,14 +296,41 @@ namespace DesignOfSCS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int[,] vs = GraphRepresentation.toWeightMatrix(graph);
-            int n = graph.Nodes.Count;
-            const int INF = 1000000000;
-            List<string> res = new List<string>();
 
-            List<bool> used = new List<bool>();
+            var p = PrimAlgorithm.Prim(GraphRepresentation.toWeightMatrix(graph), graph.Nodes.Count);
+
+            for(int i =1; i<p.Length; i++)
+            {
+                foreach (var x in graph.Edges)
+                {
+                    if (x.From.Id == p[i] && x.To.Id == i || x.From.Id == i && x.To.Id == p[i])
+                        x.IsMinE = true;
+                }
+            }
+
+            Repaint();
+
+            
+
+            /* // реализация за O(m log(n))
+            List<Pair> rez = new List<Pair>();
+            var EdgeList = GraphRepresentation.toEdgeList(graph);
+            const int INF = 1000000000; // значение "бесконечность"
+            List<List<Pair>> pairs = new List<List<Pair>>();
+            int n = graph.Nodes.Count;
+
             for (int i = 0; i < n; i++)
-                used.Add(false);
+            {
+                pairs.Add(new List<Pair>());
+            }
+
+            for (int i = 0; i < graph.Edges.Count; i++)
+            {
+                Pair temp1 = new Pair() { First = EdgeList[1, i], Second = EdgeList[2, i] };
+                Pair temp2 = new Pair() { First = EdgeList[0, i], Second = EdgeList[2, i] };
+                pairs[EdgeList[0, i]].Add(temp1);
+                pairs[EdgeList[1, i]].Add(temp2);
+            }
 
             List<int> min_e = new List<int>();
             for (int i = 0; i < n; i++)
@@ -312,40 +340,62 @@ namespace DesignOfSCS
             for (int i = 0; i < n; i++)
                 sel_e.Add(-1);
 
-            min_e[0] = 0;
+             min_e[0] = 0;
 
+
+
+            Dictionary<Pair, int> q = new Dictionary<Pair, int>();
+            q[new Pair() { First = 0, Second = 0 }] = 1;
             for (int i = 0; i < n; ++i)
             {
-                int v = -1;
-                for (int j = 0; j < n; ++j)
-                    if (!used[j] && (v == -1 || min_e[j] < min_e[v]))
-                        v = j;
-                if (min_e[v] == INF)
-                    MessageBox.Show("No MST");
-                used[v] = true;
-
-                for (int to = 0; to < n; ++to)
-                    if (vs[v, to] < min_e[to])
-                    {
-                        min_e[to] = vs[v, to];
-                        sel_e[to] = v;
-                    }
-            }
-
-            
-            for(int i = 0; i < n; i++)
-            {
-                if (sel_e[i] != -1)
+                if (q.Count == 0)
                 {
-                    foreach (var x in graph.Edges)
+                    MessageBox.Show("No MST!");
+                }
+
+                int v = q.First().Key.Second;
+                q.Remove(q.First().Key);
+
+                    if (sel_e[v] != -1)
+                        rez.Add(new Pair() { First = v, Second = sel_e[v] });
+                 //    cout << v << " " << sel_e[v] << endl;
+
+                for (int j = 0; j < pairs[v].Count; ++j)
+                {
+                    int to = pairs[v][j].First,
+                        cost = pairs[v][j].Second;
+                    if (cost < min_e[to])
                     {
-                        if (x.From.Id == i && x.To.Id == sel_e[i] || x.From.Id == sel_e[i] && x.To.Id == i)
-                            x.IsMinE = true;
+                        q.Remove(new Pair() { First = min_e[to], Second = to });
+                        min_e[to] = cost;
+                        sel_e[to] = v;
+                        q[new Pair() { First = min_e[to], Second = to }] = 1;
                     }
                 }
             }
-            Repaint();
 
+            for (int i = 0; i < rez.Count; i++)
+            {
+                    foreach (var x in graph.Edges)
+                    {
+                        if (x.From.Id == rez[i].First && x.To.Id == rez[i].Second || x.From.Id == rez[i].Second && x.To.Id == rez[i].First)
+                            x.IsMinE = true;
+                    }
+            }
+            Repaint();*/
+
+        }
+
+        struct Pair
+        {
+            public int First { get; set; }
+            public int Second { get; set; }
+        }
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
