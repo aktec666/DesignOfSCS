@@ -114,6 +114,7 @@ namespace DesignOfSCS
         {
             Edge e = (Edge)sender;
             textBoxWeight.Enabled = true;
+            textBoxWeight.Focus();
             textBoxWeight.Text = e.Weight.ToString();
             currentObj = e;
         }
@@ -317,9 +318,8 @@ namespace DesignOfSCS
                 }
             }
 
-            labelCost.Text = "Cost " + cost;
-            labelTime.Text = "Time (ticks) " + t.ElapsedTicks;
-
+            labelCost.Text = "Итоговая стоимость (р) " + cost * Convert.ToInt32(textBoxCost.Text);
+            labelTime.Text = "Время в тиках " + t.ElapsedTicks;
             Repaint();
 
             
@@ -432,8 +432,8 @@ namespace DesignOfSCS
                 }
             }
 
-            labelCost.Text = "Cost " + cost;
-            labelTime.Text = "Time (ticks) " + t.ElapsedTicks;
+            labelCost.Text = "Итоговая стоимость (р) " + cost * Convert.ToInt32(textBoxCost.Text);
+            labelTime.Text = "Время в тиках " + t.ElapsedTicks;
 
             Repaint();
         }
