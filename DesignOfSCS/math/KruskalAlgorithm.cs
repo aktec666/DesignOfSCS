@@ -7,6 +7,9 @@ namespace DesignOfSCS.math
 {
     class KruskalAlgorithm
     {
+		/// <summary>
+		/// Структура ребро
+		/// </summary>
 		public struct Edge
 		{
 			public int Source;
@@ -14,6 +17,9 @@ namespace DesignOfSCS.math
 			public int Weight;
 		}
 
+		/// <summary>
+		/// Структура граф
+		/// </summary>
 		public struct Graph
 		{
 			public int VerticesCount;
@@ -21,12 +27,21 @@ namespace DesignOfSCS.math
 			public Edge[] edge;
 		}
 
+		/// <summary>
+		/// Компонента связности
+		/// </summary>
 		public struct Subset
 		{
 			public int Parent;
 			public int Rank;
 		}
 
+		/// <summary>
+		/// Метод создания графа
+		/// </summary>
+		/// <param name="verticesCount">количество вершин</param>
+		/// <param name="edgesCoun">количество ребер</param>
+		/// <returns></returns>
 		public static Graph CreateGraph(int verticesCount, int edgesCoun)
 		{
 			Graph graph = new Graph();
@@ -37,6 +52,12 @@ namespace DesignOfSCS.math
 			return graph;
 		}
 
+		/// <summary>
+		/// Поиск элемента в множестве
+		/// </summary>
+		/// <param name="subsets">список множеств</param>
+		/// <param name="i">номер компоненты</param>
+		/// <returns></returns>
 		private static int Find(Subset[] subsets, int i)
 		{
 			if (subsets[i].Parent != i)
@@ -45,6 +66,12 @@ namespace DesignOfSCS.math
 			return subsets[i].Parent;
 		}
 
+		/// <summary>
+		/// Объединение компонент связности
+		/// </summary>
+		/// <param name="subsets">список множеств</param>
+		/// <param name="x">Компонента 1</param>
+		/// <param name="y">Компонента 2</param>
 		private static void Union(Subset[] subsets, int x, int y)
 		{
 			int xroot = Find(subsets, x);
@@ -61,8 +88,15 @@ namespace DesignOfSCS.math
 			}
 		}
 
+		/// <summary>
+		/// Метод строищий MST по алгоритму Краскала
+		/// </summary>
+		/// <param name="_graph">граф</param>
+		/// <returns></returns>
 		public static int[,] Kruskal(DesignOfSCS.graph.Graph _graph)
 		{
+
+			// конвертируем граф в удобный формат для алгоритма Краскала
 			Graph graph = KruskalAlgorithm.CreateGraph(_graph.Nodes.Count, _graph.Edges.Count);
 			for (int j = 0; j < graph.EdgesCount; j++)
 			{
@@ -77,11 +111,13 @@ namespace DesignOfSCS.math
 			int i = 0;
 			int e = 0;
 
+			// сортируем список ребер по возрастанию
 			Array.Sort(graph.edge, delegate (Edge a, Edge b)
 			{
 				return a.Weight.CompareTo(b.Weight);
 			});
 
+			// множество компонент связсности
 			Subset[] subsets = new Subset[verticesCount];
 
 			for (int v = 0; v < verticesCount; ++v)

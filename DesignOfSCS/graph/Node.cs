@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 namespace DesignOfSCS.graph
 {
+    // класс вершины
     class Node : GraphObject
     {
         public const int NODE_SIZE = 60;
@@ -17,6 +18,9 @@ namespace DesignOfSCS.graph
 
         public string Name { get; set; }
 
+        /// <summary>
+        /// Верхняя левая точка отрисованного объекта
+        /// </summary>
         public Point TopLeft
         {
             get
@@ -24,7 +28,13 @@ namespace DesignOfSCS.graph
                 return new Point(Position.X - NODE_SIZE / 2, Position.Y - NODE_SIZE / 2);
             }
         }
-
+        /// <summary>
+        /// Конструтор вершины
+        /// </summary>
+        /// <param name="id">идификатор вершины</param>
+        /// <param name="IS">true - если главный сервер</param>
+        /// <param name="x">координата X</param>
+        /// <param name="y">координата Y</param>
         public Node(int id, bool IS, int x, int y)
         {
             IsServer = IS;
@@ -33,6 +43,11 @@ namespace DesignOfSCS.graph
             Position = new Point(x, y);
         }
 
+        /// <summary>
+        /// Конструтор вершины
+        /// </summary>
+        /// <param name="id">идификатор вершины</param>
+        /// <param name="IS">true - если главный сервер</param>
         public Node(int id, bool IS = false)
         {
             IsServer = IS;
@@ -40,7 +55,11 @@ namespace DesignOfSCS.graph
             Name = id.ToString();
         }
 
-
+        /// <summary>
+        /// метод отрисовки вершины
+        /// </summary>
+        /// <param name="e">Объект Graphics на котором происходит отрисовка</param>
+        /// <param name="num">необязательный параметр унаследованный от базового класса</param>
         public override void Draw(Graphics e, int num = 0)
         {
             if (IsServer)
@@ -76,7 +95,10 @@ namespace DesignOfSCS.graph
         {
             throw new NotImplementedException();
         }
-
+        /// <summary>
+        /// Изменение координаты вершины
+        /// </summary>
+        /// <param name="to">новая координата положения вершины</param>
         public void OnMove(Point to)
         {
             Position = to;

@@ -5,6 +5,9 @@ using System.Windows.Forms;
 
 namespace DesignOfSCS.graph
 {
+    /// <summary>
+    /// Класс описывающий ребро графа
+    /// </summary>
     class Edge : GraphObject
     {
         public bool IsMinE { get; set; }
@@ -15,6 +18,12 @@ namespace DesignOfSCS.graph
 
         private Point MidPoint { get; set; }
 
+        /// <summary>
+        /// Конструктор класс
+        /// </summary>
+        /// <param name="_from">1 вершина</param>
+        /// <param name="_to">2 вершина</param>
+        /// <param name="_weight">вес</param>
         public Edge(Node _from, Node _to, int _weight = 0)
         {
             From = _from;
@@ -23,6 +32,11 @@ namespace DesignOfSCS.graph
             IsMinE = false;
         }
 
+        /// <summary>
+        /// Метод отрисовки ребра
+        /// </summary>
+        /// <param name="e">Объект Graphics для рисования</param>
+        /// <param name="num">Количество ребер</param>
         public override void Draw(Graphics e, int num = 0)
         {
             int k = 50;
@@ -82,9 +96,7 @@ namespace DesignOfSCS.graph
                 e.DrawLine(pen, startPoint, midPoint);
                 e.DrawLine(pen, midPoint, endPoint);
             }
-            Point[] arrowPoints = MathHelper.ArrowPoints(midPoint, endPoint);
-
-           // e.FillClosedCurve(State == State.Normal ? Brushes.Black : Brushes.Lime, arrowPoints);
+          
             MidPoint = midPoint;
         }
 

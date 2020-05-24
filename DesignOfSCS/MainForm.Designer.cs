@@ -223,8 +223,6 @@
             this.textBoxWeight.Size = new System.Drawing.Size(121, 22);
             this.textBoxWeight.TabIndex = 1;
             this.textBoxWeight.TextChanged += new System.EventHandler(this.textBoxWeight_TextChanged);
-            this.textBoxWeight.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxWeight_KeyDown);
-            this.textBoxWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxWeight_KeyPress);
             // 
             // labelWeight
             // 

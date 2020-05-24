@@ -5,6 +5,9 @@ using System.Text;
 
 namespace DesignOfSCS.math
 {
+	/// <summary>
+	/// Алгоритм Дейкстры
+	/// </summary>
     class DijkstraAlgorithm
     {
 		private static int MinimumDistance(int[] distance, bool[] shortestPathTreeSet, int verticesCount)
@@ -24,6 +27,13 @@ namespace DesignOfSCS.math
 			return minIndex;
 		}
 
+		/// <summary>
+		/// Метод реализующий алгоритм Дейкстры
+		/// </summary>
+		/// <param name="graph">граф</param>
+		/// <param name="source">для какой вершины ищем путь</param>
+		/// <param name="verticesCount">количество вершин</param>
+		/// <returns></returns>
 		public static int[] Dijkstra(int[,] graph, int source, int verticesCount)
 		{
 			int[] distance = new int[verticesCount];

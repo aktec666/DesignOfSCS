@@ -5,8 +5,19 @@ using System.Text;
 
 namespace DesignOfSCS.math
 {
+
+	/// <summary>
+	/// Алгоритм Прима
+	/// </summary>
     class PrimAlgorithm
     {
+		/// <summary>
+		/// Поиск ребра минимального веса
+		/// </summary>
+		/// <param name="key">массив текущих наименьших весов</param>
+		/// <param name="set">метки вершин</param>
+		/// <param name="verticesCount">количество вершин</param>
+		/// <returns></returns>
 		public static int MinKey(int[] key, bool[] set, int verticesCount)
 		{
 			int min = 1000000000, minIndex = 0;
@@ -21,6 +32,12 @@ namespace DesignOfSCS.math
 			return minIndex;
 		}
 
+		/// <summary>
+		/// Метод строищиц MST
+		/// </summary>
+		/// <param name="graph">матрица весов</param>
+		/// <param name="verticesCount">количество вершин</param>
+		/// <returns></returns>
 		public static int[] Prim(int[,] graph, int verticesCount)
 		{
 			int[] parent = new int[verticesCount];

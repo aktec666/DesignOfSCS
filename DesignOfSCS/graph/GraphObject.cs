@@ -4,14 +4,17 @@ using System.Windows.Forms;
 
 namespace DesignOfSCS.graph
 {
+    // состояние объекта в приложении (выбран или нет)
     public enum State { Normal = 0, Selected = 1 }
 
+    // делегаты для взаимодействия с элементами 
     public delegate void MouseHoverHandler(object sender);
     public delegate void MouseLeaveHandler(object sender);
     public delegate void MouseClickHandler(object sender);
     public delegate void SelectHandler(object sender);
     public delegate void DeselectHandler(object sender);
 
+    // базовый родительский класс для вершины и ребра
     public abstract class GraphObject
     {
         public event MouseHoverHandler MouseHover;

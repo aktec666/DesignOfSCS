@@ -5,8 +5,16 @@ using System.Text;
 
 namespace DesignOfSCS.graph
 {
+    /// <summary>
+    /// Вспомогательный класс, конвертирующий граф в различные представления
+    /// </summary>
     class GraphRepresentation
     {
+        /// <summary>
+        /// Возвращает матрицу смежности
+        /// </summary>
+        /// <param name="g">Граф</param>
+        /// <returns></returns>
         public static int[,] toAdjacencyMatrix(Graph g)
         {
             int[,] ret = new int[g.Nodes.Count, g.Nodes.Count];
@@ -19,6 +27,11 @@ namespace DesignOfSCS.graph
             return ret;
         }
 
+        /// <summary>
+        /// Конвертирует из матрицы смежности в граф
+        /// </summary>
+        /// <param name="matrix">матрица смежности</param>
+        /// <returns></returns>
         public static Graph fromAdjacencyMatrix(int[,] matrix)
         {
             Graph g = new Graph();
@@ -38,6 +51,11 @@ namespace DesignOfSCS.graph
             return g;
         }
 
+        /// <summary>
+        /// Возвращает матрицу инцидентности
+        /// </summary>
+        /// <param name="g">граф</param>
+        /// <returns></returns>
         public static int[,] toIncidenceMatrix(Graph g)
         {
             int[,] ret = new int[g.Nodes.Count, g.Edges.Count];
@@ -49,6 +67,11 @@ namespace DesignOfSCS.graph
             return ret;
         }
 
+        /// <summary>
+        /// Конвертирует из матрицы инцидентности в граф
+        /// </summary>
+        /// <param name="matrix">матрица инцидентности</param>
+        /// <returns></returns>
         public static Graph fromIncidenceMatrix(int[,] matrix)
         {
             Graph g = new Graph();
@@ -79,6 +102,11 @@ namespace DesignOfSCS.graph
             return g;
         }
 
+        /// <summary>
+        /// Возвращает матрицу весов
+        /// </summary>
+        /// <param name="g">граф</param>
+        /// <returns></returns>
         public static int[,] toWeightMatrix(Graph g)
         {
             int[,] ret = new int[g.Nodes.Count, g.Nodes.Count];
@@ -95,6 +123,11 @@ namespace DesignOfSCS.graph
             return ret;
         }
 
+        /// <summary>
+        /// Конвертирует из матрицы весов в граф
+        /// </summary>
+        /// <param name="matrix">матрица весов</param>
+        /// <returns></returns>
         public static Graph fromWeightMatrix(int[,] matrix)
         {
             Graph g = new Graph();
@@ -116,6 +149,11 @@ namespace DesignOfSCS.graph
             return g;
         }
 
+        /// <summary>
+        /// Возвращает список ребер
+        /// </summary>
+        /// <param name="g">граф</param>
+        /// <returns></returns>
         public static int[,] toEdgeList(Graph g)
         {
             int[,] ret = new int[3, g.Edges.Count];
@@ -130,6 +168,11 @@ namespace DesignOfSCS.graph
             return ret;
         }
 
+        /// <summary>
+        /// конвертирует из списка ребер в граф
+        /// </summary>
+        /// <param name="list">Список ребер</param>
+        /// <returns></returns>
         public static Graph fromEdgeList(int[,] list)
         {
             Graph g = new Graph();
@@ -152,6 +195,11 @@ namespace DesignOfSCS.graph
             return g;
         }
 
+        /// <summary>
+        /// Возвращает список смежности
+        /// </summary>
+        /// <param name="g">граф</param>
+        /// <returns></returns>
         public static int[,] toAdjacencyList(Graph g)
         {
             List<List<int>> m = new List<List<int>>();
