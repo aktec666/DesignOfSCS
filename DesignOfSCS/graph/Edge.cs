@@ -14,7 +14,7 @@ namespace DesignOfSCS.graph
         public const int FONT_SIZE = 14;
         public Node From { get; set; }
         public Node To { get; set; }
-        public int Weight { get; set; }
+        public double Weight { get; set; }
 
         private Point MidPoint { get; set; }
 

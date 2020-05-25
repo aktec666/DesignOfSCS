@@ -269,8 +269,8 @@ namespace DesignOfSCS
         {
             if (currentObj != null && currentObj is Edge)
             {
-                int w;
-                if (int.TryParse(textBoxWeight.Text, out w))
+                double w;
+                if (double.TryParse(textBoxWeight.Text, out w))
                 {
                     ((Edge)currentObj).Weight = w;
                     Repaint();
@@ -323,7 +323,7 @@ namespace DesignOfSCS
                 cost += distRez[i];
             }
 
-            labelCost.Text = "Итоговая стоимость (р) " + cost * Convert.ToInt32(textBoxCost.Text);
+            labelCost.Text = "Итоговая стоимость (р) " + cost * Convert.ToDouble(textBoxCost.Text);
             labelTime.Text = "Время в тиках " + t.ElapsedTicks;
             Repaint();
 
@@ -380,7 +380,7 @@ namespace DesignOfSCS
             }
 
 
-            labelCost.Text = "Итоговая стоимость (р) " + cost * Convert.ToInt32(textBoxCost.Text);
+            labelCost.Text = "Итоговая стоимость (р) " + cost * Convert.ToDouble(textBoxCost.Text);
             labelTime.Text = "Время в тиках " + t.ElapsedTicks;
 
             Repaint();

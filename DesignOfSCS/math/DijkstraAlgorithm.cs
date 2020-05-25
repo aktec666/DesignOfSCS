@@ -10,9 +10,9 @@ namespace DesignOfSCS.math
 	/// </summary>
     class DijkstraAlgorithm
     {
-		private static int MinimumDistance(int[] distance, bool[] shortestPathTreeSet, int verticesCount)
+		private static int MinimumDistance(double[] distance, bool[] shortestPathTreeSet, int verticesCount)
 		{
-			int min = int.MaxValue;
+			double min = int.MaxValue;
 			int minIndex = 0;
 
 			for (int v = 0; v < verticesCount; ++v)
@@ -34,9 +34,9 @@ namespace DesignOfSCS.math
 		/// <param name="source">для какой вершины ищем путь</param>
 		/// <param name="verticesCount">количество вершин</param>
 		/// <returns></returns>
-		public static int[] Dijkstra(int[,] graph, int source, int verticesCount)
+		public static double[] Dijkstra(double[,] graph, int source, int verticesCount)
 		{
-			int[] distance = new int[verticesCount];
+			double[] distance = new double[verticesCount];
 			bool[] shortestPathTreeSet = new bool[verticesCount];
 
 			for (int i = 0; i < verticesCount; ++i)

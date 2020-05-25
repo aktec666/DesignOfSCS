@@ -107,9 +107,9 @@ namespace DesignOfSCS.graph
         /// </summary>
         /// <param name="g">граф</param>
         /// <returns></returns>
-        public static int[,] toWeightMatrix(Graph g)
+        public static double[,] toWeightMatrix(Graph g)
         {
-            int[,] ret = new int[g.Nodes.Count, g.Nodes.Count];
+            double[,] ret = new double[g.Nodes.Count, g.Nodes.Count];
             for (int i = 0; i < ret.GetLength(0); i++)
                 for (int j = 0; j < ret.GetLength(1); j++)
                     ret[i, j] = 1000000000;
@@ -154,9 +154,9 @@ namespace DesignOfSCS.graph
         /// </summary>
         /// <param name="g">граф</param>
         /// <returns></returns>
-        public static int[,] toEdgeList(Graph g)
+        public static double[,] toEdgeList(Graph g)
         {
-            int[,] ret = new int[3, g.Edges.Count];
+            double[,] ret = new double[3, g.Edges.Count];
             int n = 0;
             foreach (Edge e in g.Edges)
             {

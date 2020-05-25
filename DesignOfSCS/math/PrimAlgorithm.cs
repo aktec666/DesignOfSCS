@@ -18,9 +18,10 @@ namespace DesignOfSCS.math
 		/// <param name="set">метки вершин</param>
 		/// <param name="verticesCount">количество вершин</param>
 		/// <returns></returns>
-		public static int MinKey(int[] key, bool[] set, int verticesCount)
+		public static int MinKey(double[] key, bool[] set, int verticesCount)
 		{
-			int min = 1000000000, minIndex = 0;
+			double min = 1000000000;
+			int minIndex = 0;
 			for (int v = 0; v < verticesCount; ++v)
 			{
 				if (set[v] == false && key[v] < min)
@@ -38,10 +39,10 @@ namespace DesignOfSCS.math
 		/// <param name="graph">матрица весов</param>
 		/// <param name="verticesCount">количество вершин</param>
 		/// <returns></returns>
-		public static int[] Prim(int[,] graph, int verticesCount)
+		public static double[] Prim(double[,] graph, int verticesCount)
 		{
-			int[] parent = new int[verticesCount];
-			int[] key = new int[verticesCount];
+			double[] parent = new double[verticesCount];
+			double[] key = new double[verticesCount];
 			bool[] mstSet = new bool[verticesCount];
 
 			for (int i = 0; i < verticesCount; ++i)

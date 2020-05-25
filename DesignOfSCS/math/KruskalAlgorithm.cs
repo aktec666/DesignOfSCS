@@ -14,7 +14,7 @@ namespace DesignOfSCS.math
 		{
 			public int Source;
 			public int Destination;
-			public int Weight;
+			public double Weight;
 		}
 
 		/// <summary>
