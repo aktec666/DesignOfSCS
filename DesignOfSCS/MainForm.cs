@@ -293,7 +293,7 @@ namespace DesignOfSCS
             var p = PrimAlgorithm.Prim(GraphRepresentation.toWeightMatrix(graph), graph.Nodes.Count);
             t.Stop();
 
-            int cost = 0;
+            double cost = 0;
 
             Graph dist = new Graph();
             foreach (var x in graph.Nodes)
@@ -315,9 +315,12 @@ namespace DesignOfSCS
             var distRez = DijkstraAlgorithm.Dijkstra(GraphRepresentation.toWeightMatrix(dist), 0, dist.Nodes.Count);
             textBoxResult.Text = "Расстояние в метрах от главного коммутатора до: \n\r";
 
+
+            cost = 0;
             for(int i =1; i<dist.Nodes.Count; i++)
             {
                 textBoxResult.Text += "Коммутатора " + i + " = " + distRez[i] + " м." + Environment.NewLine;
+                cost += distRez[i];
             }
 
             labelCost.Text = "Итоговая стоимость (р) " + cost * Convert.ToInt32(textBoxCost.Text);
@@ -349,7 +352,7 @@ namespace DesignOfSCS
             foreach (var x in graph.Nodes)
                 dist.AddNode(x);
 
-            int cost = 0;
+            double cost = 0;
             for (int i = 0; i < p.Length/2; i++)
             {
                 foreach (var x in graph.Edges)
@@ -365,12 +368,15 @@ namespace DesignOfSCS
                 }
             }
 
+
+            cost = 0;
             var distRez = DijkstraAlgorithm.Dijkstra(GraphRepresentation.toWeightMatrix(dist), 0, dist.Nodes.Count);
             textBoxResult.Text = "Расстояние в метрах от главного коммутатора до: \n\r";
 
             for (int i = 1; i < dist.Nodes.Count; i++)
             {
                 textBoxResult.Text += "Коммутатора " + i + " = " + distRez[i] + " м." + Environment.NewLine;
+                cost += distRez[i];
             }
 
 
