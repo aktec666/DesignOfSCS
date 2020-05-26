@@ -40,18 +40,18 @@
             this.buttonMain = new System.Windows.Forms.ToolStripButton();
             this.buttonNode = new System.Windows.Forms.ToolStripButton();
             this.buttonEdge = new System.Windows.Forms.ToolStripButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBoxResult = new System.Windows.Forms.TextBox();
+            this.textBoxCost = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelTime = new System.Windows.Forms.Label();
+            this.labelCost = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonKruskal = new System.Windows.Forms.Button();
             this.buttonPrim = new System.Windows.Forms.Button();
             this.groupBoxProperties = new System.Windows.Forms.GroupBox();
             this.textBoxWeight = new System.Windows.Forms.TextBox();
             this.labelWeight = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.labelCost = new System.Windows.Forms.Label();
-            this.labelTime = new System.Windows.Forms.Label();
-            this.buttonKruskal = new System.Windows.Forms.Button();
-            this.textBoxCost = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxResult = new System.Windows.Forms.TextBox();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -59,9 +59,9 @@
             this.splitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.toolStripButtons.SuspendLayout();
-            this.groupBoxProperties.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBoxProperties.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -89,18 +89,18 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(140, 26);
             this.newToolStripMenuItem.Text = "Новый";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(137, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(140, 26);
             this.exitToolStripMenuItem.Text = "Выход";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -194,6 +194,88 @@
             this.buttonEdge.Text = "toolStripButton3";
             this.buttonEdge.Click += new System.EventHandler(this.buttonEdge_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textBoxResult);
+            this.groupBox2.Controls.Add(this.textBoxCost);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.labelTime);
+            this.groupBox2.Controls.Add(this.labelCost);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox2.Location = new System.Drawing.Point(0, 283);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(449, 282);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Результат";
+            // 
+            // textBoxResult
+            // 
+            this.textBoxResult.Location = new System.Drawing.Point(6, 129);
+            this.textBoxResult.Multiline = true;
+            this.textBoxResult.Name = "textBoxResult";
+            this.textBoxResult.Size = new System.Drawing.Size(431, 147);
+            this.textBoxResult.TabIndex = 4;
+            // 
+            // textBoxCost
+            // 
+            this.textBoxCost.Location = new System.Drawing.Point(199, 32);
+            this.textBoxCost.Name = "textBoxCost";
+            this.textBoxCost.Size = new System.Drawing.Size(121, 22);
+            this.textBoxCost.TabIndex = 3;
+            this.textBoxCost.Text = "10";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(26, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(167, 17);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Стоимость (р за 1 метр)";
+            // 
+            // labelTime
+            // 
+            this.labelTime.AutoSize = true;
+            this.labelTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelTime.Location = new System.Drawing.Point(26, 109);
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(114, 17);
+            this.labelTime.TabIndex = 1;
+            this.labelTime.Text = "Время в тиках";
+            // 
+            // labelCost
+            // 
+            this.labelCost.AutoSize = true;
+            this.labelCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelCost.Location = new System.Drawing.Point(26, 79);
+            this.labelCost.Name = "labelCost";
+            this.labelCost.Size = new System.Drawing.Size(185, 17);
+            this.labelCost.TabIndex = 0;
+            this.labelCost.Text = "Итоговая стоимость (р)";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.buttonKruskal);
+            this.groupBox1.Controls.Add(this.buttonPrim);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 106);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(449, 177);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Команды";
+            // 
+            // buttonKruskal
+            // 
+            this.buttonKruskal.Location = new System.Drawing.Point(89, 88);
+            this.buttonKruskal.Name = "buttonKruskal";
+            this.buttonKruskal.Size = new System.Drawing.Size(146, 61);
+            this.buttonKruskal.TabIndex = 2;
+            this.buttonKruskal.Text = "Алгоритм Краскала";
+            this.buttonKruskal.UseVisualStyleBackColor = true;
+            this.buttonKruskal.Click += new System.EventHandler(this.buttonKruskal_Click);
+            // 
             // buttonPrim
             // 
             this.buttonPrim.Location = new System.Drawing.Point(89, 21);
@@ -233,88 +315,6 @@
             this.labelWeight.TabIndex = 0;
             this.labelWeight.Text = "Расстояние (м)";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.buttonKruskal);
-            this.groupBox1.Controls.Add(this.buttonPrim);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(0, 106);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(449, 177);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Команды";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.textBoxResult);
-            this.groupBox2.Controls.Add(this.textBoxCost);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.labelTime);
-            this.groupBox2.Controls.Add(this.labelCost);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(0, 283);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(449, 282);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Результат";
-            // 
-            // labelCost
-            // 
-            this.labelCost.AutoSize = true;
-            this.labelCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelCost.Location = new System.Drawing.Point(26, 79);
-            this.labelCost.Name = "labelCost";
-            this.labelCost.Size = new System.Drawing.Size(185, 17);
-            this.labelCost.TabIndex = 0;
-            this.labelCost.Text = "Итоговая стоимость (р)";
-            // 
-            // labelTime
-            // 
-            this.labelTime.AutoSize = true;
-            this.labelTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTime.Location = new System.Drawing.Point(26, 109);
-            this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(114, 17);
-            this.labelTime.TabIndex = 1;
-            this.labelTime.Text = "Время в тиках";
-            // 
-            // buttonKruskal
-            // 
-            this.buttonKruskal.Location = new System.Drawing.Point(89, 88);
-            this.buttonKruskal.Name = "buttonKruskal";
-            this.buttonKruskal.Size = new System.Drawing.Size(146, 61);
-            this.buttonKruskal.TabIndex = 2;
-            this.buttonKruskal.Text = "Алгоритм Краскала";
-            this.buttonKruskal.UseVisualStyleBackColor = true;
-            this.buttonKruskal.Click += new System.EventHandler(this.buttonKruskal_Click);
-            // 
-            // textBoxCost
-            // 
-            this.textBoxCost.Location = new System.Drawing.Point(199, 32);
-            this.textBoxCost.Name = "textBoxCost";
-            this.textBoxCost.Size = new System.Drawing.Size(121, 22);
-            this.textBoxCost.TabIndex = 3;
-            this.textBoxCost.Text = "10";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(167, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Стоимость (р за 1 метр)";
-            // 
-            // textBoxResult
-            // 
-            this.textBoxResult.Location = new System.Drawing.Point(6, 129);
-            this.textBoxResult.Multiline = true;
-            this.textBoxResult.Name = "textBoxResult";
-            this.textBoxResult.Size = new System.Drawing.Size(431, 147);
-            this.textBoxResult.TabIndex = 4;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -338,11 +338,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.toolStripButtons.ResumeLayout(false);
             this.toolStripButtons.PerformLayout();
-            this.groupBoxProperties.ResumeLayout(false);
-            this.groupBoxProperties.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBoxProperties.ResumeLayout(false);
+            this.groupBoxProperties.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -51,9 +51,10 @@ namespace DesignOfSCS.graph
             }
             Point temp = new Point((startPoint.X + endPoint.X) / 2, (startPoint.Y + endPoint.Y) / 2);
             Point midPoint;
-            if (num % 2 == 0)
-            {
-                k = k * (num / 2);
+            //     if (num % 2 == 0)
+            //        {
+            //          k = k * (num / 2);
+                k = 0;
                 Point x = new Point(startPoint.Y - temp.Y + temp.X, temp.X - startPoint.X + temp.Y);
                 midPoint = MathHelper.MiddlePoint(x, temp, k);
                 double angle = Math.Atan2(midPoint.Y - temp.Y, midPoint.X - temp.X) * 180.0 / Math.PI;
@@ -62,19 +63,19 @@ namespace DesignOfSCS.graph
                     x = new Point(temp.Y - startPoint.Y + temp.X, startPoint.X - temp.X + temp.Y);
                     midPoint = MathHelper.MiddlePoint(x, temp, k);
                 }
-            }
-            else
-            {
-                k = k * ((num + 1) / 2);
-                Point x = new Point(startPoint.Y - temp.Y + temp.X, temp.X - startPoint.X + temp.Y);
-                midPoint = MathHelper.MiddlePoint(x, temp, k);
-                double angle = Math.Atan2(midPoint.Y - temp.Y, midPoint.X - temp.X) * 180.0 / Math.PI;
-                if (angle > 0 && angle <= 180.0)
-                {
-                    x = new Point(temp.Y - startPoint.Y + temp.X, startPoint.X - temp.X + temp.Y);
-                    midPoint = MathHelper.MiddlePoint(x, temp, k);
-                }
-            }
+     //       }
+        //    else
+       //     {
+       //         k = k * ((num + 1) / 2);
+        //        Point x = new Point(startPoint.Y - temp.Y + temp.X, temp.X - startPoint.X + temp.Y);
+       //         midPoint = MathHelper.MiddlePoint(x, temp, k);
+        //        double angle = Math.Atan2(midPoint.Y - temp.Y, midPoint.X - temp.X) * 180.0 / Math.PI;
+          //      if (angle > 0 && angle <= 180.0)
+         //       {
+         //           x = new Point(temp.Y - startPoint.Y + temp.X, startPoint.X - temp.X + temp.Y);
+      //            midPoint = MathHelper.MiddlePoint(x, temp, k);
+        //        }
+       //     }
 
 
             if (Weight != 0)
